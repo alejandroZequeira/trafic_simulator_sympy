@@ -30,7 +30,7 @@ def get_std(objeto):
 
 if __name__=="__main__":
     
-    link=[20,150,200,500,1000]
+    link=[20,150,200,500]
     quos=[40,120,300,200]
     service_queue=["infinite","finite"]
     for p in service_queue:
@@ -38,25 +38,25 @@ if __name__=="__main__":
         for q in quos:
             for l in link:
                 statistics=[]
-            Quos=str(q)+"ms"
-            link_speed=str(l)+"_kbits_seg"
-            service_queue_size= p
-            while True:
-                for i in range(n):
-                    print("simulando:", i+1," de ", n )
-                    result=simulador.simular(l,q,p)
-                    statistics.append(result)
-                media=get_media(statistics)
-                mediana=get_mediana(statistics)
-                error=(media-mediana)/mediana
-                if media==mediana or error <= 0.02:
-                        break
-                else:
-                        statistics=[]
-                        print("no cumplio.." )
-                        n+=1
-            desviacion_std=get_std(statistics)
-            graf.lost_or_sent_graph(statistics,Quos,link_speed,service_queue_size)
-            graf.on_off_graph(statistics,Quos,link_speed,service_queue_size)
-            graf.Quos_graf(statistics,Quos,link_speed,service_queue_size)
-            graf.throuput_graf(statistics,Quos,link_speed,service_queue_size,media,mediana,desviacion_std)
+                Quos=str(q)+"ms"
+                link_speed=str(l)+"_kbits_seg"
+                service_queue_size= p
+                while True:
+                    for i in range(n):
+                        print("simulando:", i+1," de ", n )
+                        result=simulador.simular(l,q,p)
+                        statistics.append(result)
+                    media=get_media(statistics)
+                    mediana=get_mediana(statistics)
+                    error=(media-mediana)/mediana
+                    if media==mediana or error <= 0.02:
+                            break
+                    else:
+                            statistics=[]
+                            print("no cumplio.." )
+                            n+=1
+                desviacion_std=get_std(statistics)
+                graf.lost_or_sent_graph(statistics,Quos,link_speed,service_queue_size)
+                graf.on_off_graph(statistics,Quos,link_speed,service_queue_size)
+                graf.Quos_graf(statistics,Quos,link_speed,service_queue_size)
+                graf.throuput_graf(statistics,Quos,link_speed,service_queue_size,media,mediana,desviacion_std)
