@@ -29,21 +29,22 @@ def get_std(objeto):
     return np.std(array)
 
 if __name__=="__main__":
-    n=30
+    
     link=[20,150,200,500,1000]
     quos=[40,120,300,200]
     service_queue=["infinite","finite"]
     for p in service_queue:
+        n=32
         for q in quos:
             for l in link:
                 statistics=[]
-            Quos=str(quos[0])+"ms"
-            link_speed=str(link[0])+"_kbits_seg"
+            Quos=str(q)+"ms"
+            link_speed=str(l)+"_kbits_seg"
             service_queue_size= p
             while True:
                 for i in range(n):
                     print("simulando:", i+1," de ", n )
-                    result=simulador.simular(link[0],quos[0],p)
+                    result=simulador.simular(l,q,p)
                     statistics.append(result)
                 media=get_media(statistics)
                 mediana=get_mediana(statistics)

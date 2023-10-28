@@ -40,7 +40,7 @@ def states(env):
 def simular(link,quos,service_queue):
     global time_in_on,time_in_off,media,simulation_time,id_pkt ,service,pakage,inter_arrival_time,Quos
     id_pkt=0
-    simulation_time=1 #min
+    simulation_time=30 #min
     media=3
     Quos=quos/60000
     link_speed=link # kbits/seg
